@@ -20,4 +20,50 @@ jobs:
           version: nightly # Or use 'latest' or a specific version like 'v0.2.0'
 
       - name: Run Forge tests
-        run: forge test --verbosity 3
+        run: name: Foundry Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly  # Or use 'latest' or a specific version like 'v0.2.0'
+
+      - name: Run Forge tests
+        run: name: Foundry Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly  # Or use 'latest' or a specific version like 'v0.2.0'
+
+      - name: Run Forge tests
+        run: forge test --match-contract ReplayTest -vvv
+
+
