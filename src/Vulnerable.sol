@@ -28,8 +28,6 @@ contract Vulnerable {
 
         // Mark the sender as having claimed
         hasClaimed[msg.sender] = true;
-
-        // Simulate reward logic (e.g., transfer tokens or emit claim event)
     }
 
     /*
