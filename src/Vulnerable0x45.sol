@@ -2,7 +2,6 @@
 pragma solidity ^0.8.0;
 
 /// @title Vulnerable Signature Claim Contract (Insecure Version)
-/// @author
 /// @notice This contract demonstrates an insecure signature verification that is vulnerable to replay attacks
 /// @dev Uses raw message hashes without EIP-191 prefixing or contextual binding (e.g., chain ID, contract address)
 contract Vulnerable {
@@ -31,19 +30,4 @@ contract Vulnerable {
 
         // Simulate reward logic (e.g., transfer tokens or emit claim event)
     }
-
-    /*
-        Off-chain signing instructions:
-        --------------------------------
-        To create a valid signature for testing this contract:
-
-        1. Construct the message as: keccak256(abi.encodePacked(userAddress))
-        2. Sign the hash with the user's private key (no prefixing)
-        3. Submit the message hash and v, r, s values to the claim() function
-
-        WARNING: This is insecure because:
-          - The message is not prefixed with "\x19Ethereum Signed Message:\n32"
-          - It does not bind to a specific contract or chain ID
-          - The same signature can be reused (replayed) across different contract instances or blockchains
-    */
 }

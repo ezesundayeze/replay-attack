@@ -2,8 +2,8 @@
 pragma solidity ^0.8.0;
 
 import "forge-std/Test.sol";
-import "../src/Vulnerable.sol";
-import "../src/Safe.sol";
+import "../src/Vulnerable0x45.sol";
+import "../src/Safe0x45.sol";
 
 /// @title Replay Attack Test Suite
 /// @notice Tests the difference between vulnerable and safe smart contracts in handling signature replay attacks.
